@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaziOdevApp", "GaziOdevApp.csproj", "{B3E26DE1-AEDC-4623-B795-3D039968A523}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{F4EBD9D1-C9CC-4C39-9230-3FD3CEC2FC0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GaziAppMODEL", "GaziAppMODEL", "{E877BE33-C2F4-4DCA-8461-EA0DAF6F3129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaziApp.MODEL", "..\GaziApp.MODEL\GaziApp.MODEL.csproj", "{0950633B-621E-4BA9-A669-CA178798D4B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OkulAppBLL", "OkulAppBLL", "{DE01CB47-0312-4A4B-B2F1-A15C038C6FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulAppBLL", "..\OkulAppBLL\OkulAppBLL.csproj", "{83000095-43B2-4C94-8033-1251A321DD3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3E26DE1-AEDC-4623-B795-3D039968A523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E26DE1-AEDC-4623-B795-3D039968A523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E26DE1-AEDC-4623-B795-3D039968A523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E26DE1-AEDC-4623-B795-3D039968A523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0950633B-621E-4BA9-A669-CA178798D4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0950633B-621E-4BA9-A669-CA178798D4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0950633B-621E-4BA9-A669-CA178798D4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0950633B-621E-4BA9-A669-CA178798D4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83000095-43B2-4C94-8033-1251A321DD3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83000095-43B2-4C94-8033-1251A321DD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83000095-43B2-4C94-8033-1251A321DD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83000095-43B2-4C94-8033-1251A321DD3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95C2CEE7-DAE0-4992-B64B-F1D27ED39F89} = {F4EBD9D1-C9CC-4C39-9230-3FD3CEC2FC0E}
+		{0950633B-621E-4BA9-A669-CA178798D4B8} = {E877BE33-C2F4-4DCA-8461-EA0DAF6F3129}
+		{83000095-43B2-4C94-8033-1251A321DD3A} = {DE01CB47-0312-4A4B-B2F1-A15C038C6FF3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C956892-C4CD-42A2-84B6-7E5E3AB101C5}
+	EndGlobalSection
+EndGlobal
