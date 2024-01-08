@@ -22,23 +22,31 @@ namespace GaziOdevApp
         }
         private void Bul_Click(object sender, EventArgs e)
         {
-            var obl = new OgrenciBL();
-            Ogrenci ogr = obl.OgrenciBul(txtOgrNo.Text.Trim());
-            if (ogr != null)
+            try
             {
-                frm.txtAd.Text = ogr.Ad;
-                frm.txtSoyad.Text = ogr.Soyad;
-                frm.txtNumara.Text = ogr.Numara;
-                frm.Ogrenciid = ogr.Ogrenciid;
+                var obl = new OgrenciBL();
+                Ogrenci ogr = obl.OgrenciBul(txtOgrNo.Text.Trim());
+                if (ogr != null)
+                {
+                    frm.txtAd.Text = ogr.Ad;
+                    frm.txtSoyad.Text = ogr.Soyad;
+                    frm.txtNumara.Text = ogr.Numara;
+                    frm.Ogrenciid = ogr.Ogrenciid;
 
-                frm.btnOgrGuncelle.Enabled = true;
-                frm.btnOgrSil.Enabled = true;
+                    frm.btnOgrGuncelle.Enabled = true;
+                    frm.btnOgrSil.Enabled = true;
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Öğrenci Bulunamadı");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Öğrenci Bulunamadı");
+
+                throw;
             }
         }
     }

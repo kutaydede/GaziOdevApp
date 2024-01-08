@@ -20,7 +20,7 @@ namespace OkulAppBLL
 
                             };
 
-                var hlp = new Helper();
+                var hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Insert into Ogretmenler (Tc,Ad,Soyad) values (@Tc,@Ad,@Soyad)", p) > 0;
             }
             catch (SqlException)
@@ -48,7 +48,7 @@ namespace OkulAppBLL
 
 
                          };
-                var hlp = new Helper();
+                var hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Update Ogretmenler set Ad=@Ad,Soyad=@Soyad,Tc=@Tc where OgretmenId=@Ogretmenid", p) > 0;
 
             }
@@ -64,7 +64,7 @@ namespace OkulAppBLL
             try
             {
                 SqlParameter[] p = { new SqlParameter("@Ogretmenid", id) };
-                var hlp = new Helper();
+                var hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Delete from Ogretmenler where OgretmenId=@Ogretmenid", p) > 0;
             }
             catch (Exception)
@@ -75,10 +75,10 @@ namespace OkulAppBLL
         }
         public Ogretmen OgretmenBul(string Tc)
         {
+            var hlp = Helper.helper;
             try
             {
                 SqlParameter[] p = { new SqlParameter("@Tc", Tc) };
-                var hlp = new Helper();
                 var dr = hlp.ExecuteReader("Select OgretmenId,Tc,Ad,Soyad from Ogretmenler where Tc=@Tc", p);
                 Ogretmen ogrt = null;
                 if (dr.Read())
@@ -97,6 +97,10 @@ namespace OkulAppBLL
             {
 
                 throw;
+            }
+            finally
+            {
+                hlp.Dispose();
             }
         }
     }

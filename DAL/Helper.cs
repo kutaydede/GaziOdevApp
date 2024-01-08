@@ -5,11 +5,33 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class Helper
+    public class Helper:IDisposable
     {
         SqlConnection cn;
         SqlCommand cmd;
         string cstr = ConfigurationManager.ConnectionStrings["cstr"].ConnectionString;
+
+        private static Helper hlp;
+        private Helper() { }
+        static int sayac = 0;
+
+        public static Helper helper
+        {
+            get
+            {
+                if (hlp == null)
+                {
+                    hlp = new Helper();
+                    sayac++;
+                }
+                return hlp;
+            }
+        }
+        public int GetInstanceCount()
+        {
+            return sayac;
+        }
+
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p = null)
         {
             try
@@ -52,6 +74,20 @@ namespace DAL
             {
 
                 throw;
+            }
+        }
+        public void Dispose()
+        {
+            if (cn != null)
+            {
+                cn.Close();
+                cn.Dispose();
+                cn = null;
+            }
+            if (cmd != null)
+            {
+                cmd.Dispose();
+                cmd = null;
             }
         }
     }

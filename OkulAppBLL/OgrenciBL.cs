@@ -19,7 +19,7 @@ namespace OkulAppBLL
                                   new SqlParameter("@Numara",ogr.Numara)
                             };
 
-                var hlp = new Helper();
+                var hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Insert into Ogrenciler (Ad,Soyad,Numara) values (@Ad,@Soyad,@Numara)", p) > 0;
             }
             catch (SqlException)
@@ -43,9 +43,10 @@ namespace OkulAppBLL
         }
         public Ogrenci OgrenciBul(string numara)
         {
+            var hlp = Helper.helper;
             try
             {
-                var hlp = new Helper();
+                
                 SqlParameter[] p = { new SqlParameter("@Numara", numara) };
                 var dr = hlp.ExecuteReader("Select OgrenciId,Ad,Soyad,Numara from Ogrenciler where Numara=@Numara", p);
                 Ogrenci ogr = null;
@@ -65,6 +66,10 @@ namespace OkulAppBLL
 
                 throw;
             }
+            finally
+            {
+                hlp.Dispose();
+            }
         }
 
         public bool OgrenciSil(int id)
@@ -72,7 +77,7 @@ namespace OkulAppBLL
             try
             {
                 SqlParameter[] p = { new SqlParameter("@Id", id) };
-                Helper hlp = new Helper();
+                Helper hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Delete from Ogrenciler where OgrenciId=@Id", p) > 0;
             }
             catch (Exception)
@@ -91,7 +96,7 @@ namespace OkulAppBLL
             new SqlParameter("@Numara",ogr.Numara),
             new SqlParameter("@OgrenciId",ogr.Ogrenciid)};
 
-                Helper hlp = new Helper();
+                Helper hlp = Helper.helper;
                 return hlp.ExecuteNonQuery("Update Ogrenciler set Ad=@Ad,Soyad=@Soyad,Numara=@Numara where OgrenciId=@OgrenciId", p) > 0;
             }
             catch (Exception)
@@ -99,6 +104,11 @@ namespace OkulAppBLL
 
                 throw;
             }
+        }
+        public string instanceCount()
+        {
+            var hlp = Helper.helper;
+            return " Oluşturulan nesne sayısı :" + hlp.GetInstanceCount();
         }
 
     }

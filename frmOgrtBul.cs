@@ -23,23 +23,31 @@ namespace GaziOdevApp
 
         private void OgrtBul_Click(object sender, EventArgs e)
         {
-            var obl = new OgretmenBL();
-            Ogretmen ogrt = obl.OgretmenBul(txtOgrtTc.Text.Trim());
-            if (ogrt != null)
+            try
             {
-                frm.txtOgrtTc.Text = ogrt.Tc;
-                frm.txtOgrtAd.Text = ogrt.Ad;
-                frm.txtOgrtSoyad.Text = ogrt.Soyad;
-                frm.Ogretmenid = ogrt.OgretmenId;
+                var obl = new OgretmenBL();
+                Ogretmen ogrt = obl.OgretmenBul(txtOgrtTc.Text.Trim());
+                if (ogrt != null)
+                {
+                    frm.txtOgrtTc.Text = ogrt.Tc;
+                    frm.txtOgrtAd.Text = ogrt.Ad;
+                    frm.txtOgrtSoyad.Text = ogrt.Soyad;
+                    frm.Ogretmenid = ogrt.OgretmenId;
 
-                frm.btnOgrtGuncelle.Enabled = true;
-                frm.btnOgrtSil.Enabled = true;
+                    frm.btnOgrtGuncelle.Enabled = true;
+                    frm.btnOgrtSil.Enabled = true;
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Öğretmen Bulunamadı");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Öğretmen Bulunamadı");
+
+                throw;
             }
         }
     }

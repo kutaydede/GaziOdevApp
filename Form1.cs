@@ -77,7 +77,7 @@ namespace GaziOdevApp
                 }) ? "Güncelleme Başarılı" : "Güncelleme Başarısız!");
                 OgrTxtClear();
                 OgrBtnEnabled();
-                //MessageBox.Show(obl.instanceCount()); 
+                MessageBox.Show(obl.instanceCount()); 
             }
             catch (Exception)
             {
